@@ -2,8 +2,9 @@
 class Pages extends CI_Controller{
 
     function view($page = 'home'){
+        echo $this->session->userdata('hash');
         if($this->session->userdata('hash') == ""){
-            //redirect(base_url().'authentication/login');
+            redirect(base_url().'authentication/login');
         }
 
         if(!file_exists(APPPATH.'views/pages/'.$page.'.php')){
